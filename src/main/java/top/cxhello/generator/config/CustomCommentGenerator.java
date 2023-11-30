@@ -6,6 +6,8 @@ import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
 
@@ -34,7 +36,10 @@ public class CustomCommentGenerator implements CommentGenerator {
     }
 
     public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-
+        topLevelClass.addJavaDocLine("/**");
+        topLevelClass.addJavaDocLine(" * @author cxhello");
+        topLevelClass.addJavaDocLine(" * @date " + new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+        topLevelClass.addJavaDocLine(" */");
     }
 
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
